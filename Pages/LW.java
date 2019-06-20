@@ -3,14 +3,21 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+
+import java.time.Clock;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 
 public class LW extends Composite {
+	
+	int clock = 0;
 
 	Label fioReadData1;
 	Label fioInstruction2;
@@ -30,13 +37,15 @@ public class LW extends Composite {
 	Label fioPC2;
 	Label fioPcMais4;
 	Label fioULA1;
-	Label fioPc1;
+	Label fioPc41;
 	Label fioPc45;
 	Label fioPc42;
 	Label fioPc43;
 	Label fioPc44;
 	Label fioSE1;
 	Label fioSE2;
+
+	Button btnNewButton;
 
 	/**
 	 * Create the composite.
@@ -195,14 +204,40 @@ public class LW extends Composite {
 		Label Registers = new Label(this, SWT.BORDER);
 		Registers.setBounds(441, 180, 248, 301);
 		
-		Button btnNewButton = new Button(this, SWT.NONE);
-		btnNewButton.setBounds(353, 631, 117, 34);
-		btnNewButton.setText("New Button");
-		
 		fioULA2 = new Label(this, SWT.NONE);
 		fioULA2.setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		fioULA2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		fioULA2.setBounds(710, 345, 9, 173);
+		
+		btnNewButton = new Button(this, SWT.NONE);
+		btnNewButton.setFont(SWTResourceManager.getFont("Ubuntu", 18, SWT.BOLD));
+		btnNewButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				switch (clock) {
+					case 0:
+						changeClock1();
+						break;
+					case 1:
+						changeClock2();
+						break;
+					case 2:
+						changeClock3();
+					break;	
+					case 3:
+						changeClock4();
+					break;
+					case 4:
+						changeClock5();
+					break;
+					default:
+						reStart();
+						break;
+				}
+			}
+		});
+		btnNewButton.setBounds(350, 631, 120, 34);
+		btnNewButton.setText("Start\n");
 		
 		fioRRD2 = new Label(this, SWT.NONE);
 		fioRRD2.setForeground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
@@ -304,9 +339,9 @@ public class LW extends Composite {
 		fioULA1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
 		fioULA1.setBounds(560, 509, 159, 9);
 		
-		fioPc1 = new Label(this, SWT.NONE);
-		fioPc1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
-		fioPc1.setBounds(305, 88, 42, 9);
+		fioPc41 = new Label(this, SWT.NONE);
+		fioPc41.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPc41.setBounds(305, 88, 42, 9);
 		
 		fioPc45 = new Label(this, SWT.NONE);
 		fioPc45.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
@@ -338,7 +373,93 @@ public class LW extends Composite {
 		fioSE2.setBounds(376, 509, 71, 9);
 
 	}
+	void changeClock1() {
+		clock++;
+		btnNewButton.setText("clock 1");
+		fioPcReadAddress.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioPC1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioPC2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioPcMais4.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+	}
+
+	void changeClock2() {
+		clock++;
+		btnNewButton.setText("clock 2");
+		fioPcReadAddress.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPC1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPC2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPcMais4.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		
+		fioInstruction.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioSE1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioSE2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioInstruction2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioWriteR.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioIMRR1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));		
+		fioPc41.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioPc42.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioPc43.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioPc44.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioPc45.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+
+	}
+
+
+	void changeClock3(){
+		clock++;
+		btnNewButton.setText("clock 3");
+		fioInstruction.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioSE1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioSE2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioInstruction2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioWriteR.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioIMRR1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPc41.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPc42.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPc43.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPc44.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioPc45.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+
+		fioULA1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioULA2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioULA3.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioRD1ULA.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+	}
+	void changeClock4(){
+		clock++;
+		btnNewButton.setText("clock 4");
+		fioULA1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioULA2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioULA3.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioRD1ULA.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		
+		fioALUrAdd.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+	}
 	
+	void changeClock5() {
+		clock++;
+		btnNewButton.setText("clock 5");
+		fioALUrAdd.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		
+		fioReadData1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioReadData2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioReadData3.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioRRD2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+		fioReaddata4.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+
+	}
+	void reStart(){
+
+		clock = 0;
+		btnNewButton.setText("reStart");
+
+		fioReadData1.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioReadData2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioReadData3.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioRRD2.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		fioReaddata4.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+
+	}
 
 	@Override
 	protected void checkSubclass() {
