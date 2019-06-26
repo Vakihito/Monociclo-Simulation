@@ -1,0 +1,5 @@
+lw $a1,0($s0)
+add $a1,$a0,$zer0
+beq $a1,$a2,main
+sw $a1, 0($a2)
+j main
