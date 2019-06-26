@@ -1,7 +1,14 @@
 # PipeLine
 <li>
+  Dentro da pasta Create_exe há 2 arquivos e uma pasta um dos arquivos é o códig lido em assemble, o outro é um ReadMe e
+  o último é um executável, para executar o executável faça:
+  
   <u>
-    Para rodar o executável em Linux
+    Para rodar o executável em Linux : 
     "$ java -jar Untitled.jar"
+  </u>
+  <u>
+    Para executar em Windows:
+    click duas vezes no executavel
   </u>
 </li>
