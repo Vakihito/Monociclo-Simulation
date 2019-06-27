@@ -1,3 +1,22 @@
+O programa irá mostrar as linhas sendo percorridos no monociclo apartir das funções a serem executadas, e para funções
+que não foram implementadas aparecerá um aviso informando que a função não foi implementada, observe que será enviado
+esse mesmo aviso caso haja uma linha em branco no programa ou uma label. 
+Com isso em mente, a aplicação irá ler o arquivo chamado "assemble.txt" que está dentro da pasta onde encontramos o 
+executável, feita essa leitura, armazeno em um vector as instruções e apartir delas mostro a simulação. Caso queira
+modificar o códico em assemble não é permitido que o usuário insira funções que não funcionariam em assemble. Além
+disso, vale ressaltar que as funções apenas mostram o caminho, mas não executam a função do assemble. 
+Por fim, existem campos que estão incompletos, apresentam o nome do registrador só que não mostra nada, isso foi
+feito pois pensei que daria tempo de executar as funções em assemble, então mostraria a modificação das variáveis
+de acordo com a mudança de ciclo, mas infelizmente não tive tempo para tal, assim como também não sei qual é o ciclo
+da função "li", então não dá para carregar valores para as variáveis, o que impediria de executar as funções em 
+assemble. 
+
+Funções implementadas:
+    - lw
+    - add
+    - beq
+    - j
+
 Para compilar:
-    - Linux - "java -jar monocicloSimulator.jar"
+    - Linux - "$ java -jar monocicloSimulator.jar"
     - Windows/Mec - click duas vezes
