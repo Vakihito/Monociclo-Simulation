@@ -5,7 +5,7 @@
   
   <li>
     Para rodar o executável em Linux : 
-  <code> $ java -jar Untitled.jar</code>
+  <code> $ java -jar monocicloSimulator.jar</code>
   </li>
   <li>
     Para executar em Windows:
