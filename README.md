@@ -5,7 +5,7 @@
   
   <li>
     Para rodar o executável em Linux : 
-    "$ java -jar Untitled.jar"
+  <code> $ java -jar Untitled.jar</code>
   </li>
   <li>
     Para executar em Windows:
